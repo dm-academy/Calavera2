@@ -7,7 +7,18 @@ curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 sudo usermod -aG docker $USER
 
-# apt-get install -y docker-compose
+# instal docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# install docker-machine
+curl -L https://github.com/docker/machine/releases/download/v0.12.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+chmod +x /tmp/docker-machine &&
+sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+
+
+# at this point we could package the machine -- let's.
+
 #
 # apt-get install -y nodejs npm
 #
