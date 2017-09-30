@@ -1,11 +1,15 @@
 #!/bin/bash
 
-apt-get update
+# apt-get update
+
+apt-get update && apt-get install -y --no-install-recommends apt-utils
+
 apt-get install -y tree
+apt-get install -y curl
 
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu  # should be vagrant but ubuntu/xenial blah
 
 # instal docker-compose
 curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
