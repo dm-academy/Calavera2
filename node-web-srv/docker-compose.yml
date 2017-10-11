@@ -1,0 +1,8 @@
+
+www:
+  build: .
+  ports:
+    - '3005:3000'
+  volumes:
+    - .:/home/app/www
+    - /home/app/www/node_modules

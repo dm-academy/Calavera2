@@ -1,0 +1,7 @@
+chat:
+  build: .
+  ports:
+    - '3005:3000'
+  volumes:
+    - .:/home/app/chat
+    - /home/app/chat/node_modules
