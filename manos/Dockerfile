@@ -27,23 +27,37 @@ RUN wget -O /usr/lib/jvm/junit-4.12.jar http://search.maven.org/remotecontent?fi
     && ln -s /usr/lib/jvm/hamcrest-core-1.3.jar /usr/bin/hamcrest-core-1.3.jar
 
 RUN apt-get update \
- && apt-get install -y git tree
+ && apt-get install -y git tree default-jdk
 
 RUN groupadd git \
  && groupadd hijo \
  && useradd -b "/home/" -m -g git hijo
 
-RUN mkdir -p /home/hijo/src/main/config \
- && mkdir -p /home/hijo/src/main/java/biz/calavera \
- && mkdir -p /home/hijo/src/test/java/biz/calavera \
- && mkdir -p /home/hijo/target/biz/calavera
+WORKDIR /home/hijo
 
-COPY files/INTERNAL_gitignore /home/hijo/.gitignore
-COPY files/build.xml  /home/hijo/build.xml
-COPY files/web.xml /home/hijo/src/main/config/web.xml
-COPY files/Class1.java /home/hijo/src/main/java/biz/calavera/Class1.java
-COPY files/MainServlet.java /home/hijo/src/main/java/biz/calavera/MainServlet.java
-COPY files/TestClass1.java /home/hijo/src/test/java/biz/calavera/TestClass1.java
+RUN mkdir -p src/main/config \
+ && mkdir -p src/main/java/biz/calavera \
+ && mkdir -p src/test/java/biz/calavera \
+ && mkdir -p target/biz/calavera
+
+COPY files/INTERNAL_gitignore .gitignore
+COPY files/build.xml  build.xml
+COPY files/web.xml src/main/config/web.xml
+COPY files/Class1.java src/main/java/biz/calavera/Class1.java
+COPY files/MainServlet.java src/main/java/biz/calavera/MainServlet.java
+COPY files/TestClass1.java src/test/java/biz/calavera/TestClass1.java
 
 RUN chown -R hijo:git /home/hijo/ \
  && chown -R hijo:hijo /usr/local/tomcat
+
+RUN ant
+
+USER hijo
+
+RUN git config --global user.email "char@calavera.biz" \
+ && git config --global user.name "Charles Betz" \
+ && git init . \
+ && git add . -A \
+ && git commit -m "initial commit"
+
+ USER root

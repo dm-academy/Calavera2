@@ -9,9 +9,9 @@
 	<property name="output" 	value="./target"/>
 	<property name="results" 	value="./target"/>
 	<!--property name="jars" 		value="./jars"/-->
-	<property name="classDeploy"	value="/var/lib/tomcat8/webapps/ROOT/WEB-INF/classes"/>
-	<property name="deploy"		value="/var/lib/tomcat8/webapps/ROOT/WEB-INF/lib"/>
-	<property name="configDeploy"	value="/var/lib/tomcat8/webapps/ROOT/WEB-INF/"/>
+	<property name="classDeploy"	value="/usr/local/tomcat/webapps/ROOT/WEB-INF/classes"/>
+	<property name="deploy"		value="/usr/local/tomcat/webapps/ROOT/WEB-INF/lib"/>
+	<property name="configDeploy"	value="/usr/local/tomcat/webapps/ROOT/WEB-INF/"/>
 
 	<property name="junit.fork" value="true"/>
 
@@ -26,7 +26,7 @@
 	</path>
 	<path id="Calavera.classpath">
 		<pathelement location="."/>
-		<pathelement location="/var/lib/tomcat8/lib/servlet-api.jar"/>
+		<pathelement location="/usr/local/tomcat/lib/servlet-api.jar"/>
 		<path refid="JUnit 4.libraryclasspath"/>
 	</path>
 
@@ -128,17 +128,17 @@
 		<!-- !!!! need to add test if this is running -->
 		<!-- if run too quickly in succession, will fail with unpredictable results-->
 		<!-- could not get preferred syntax to work -->
-		<exec executable="bash">
-						<arg value = "/var/lib/tomcat8/bin/shutdown.sh"/>
+		<!-- exec executable="bash">
+						<arg value = "/usr/local/tomcat/bin/shutdown.sh"/>
 		</exec>
 
 		<exec executable="bash">
-						<arg value = "/var/lib/tomcat8/bin/startup.sh"/>
-		</exec>
+						<arg value = "/usr/local/tomcat/bin/startup.sh"/>
+		</exec-->
 
 		<!-- deprecated
-		<exec command="/var/lib/tomcat8/bin/shutdown.sh"/>
-		<exec command="/var/lib/tomcat8/bin/startup.sh"/>
+		<exec command="/usr/local/tomcat/bin/shutdown.sh"/>
+		<exec command="/usr/local/tomcat/bin/startup.sh"/>
     -->
 	</target>
 </project>
