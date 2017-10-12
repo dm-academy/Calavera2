@@ -17,7 +17,7 @@ RUN mkdir -p /home/jenkins/.ssh \
 
 WORKDIR /home/jenkins/.ssh
 
-COPY id_rsa* ./
+COPY files/id_rsa* ./
 
 RUN cat id_rsa.pub >> authorized_keys \
  && chown -R jenkins:jenkins /home/jenkins \
@@ -25,3 +25,17 @@ RUN cat id_rsa.pub >> authorized_keys \
  && chmod 644 id_rsa.pub
 
 WORKDIR /home/
+
+RUN mkdir -p hijo.git/hooks \
+ && chmod -R 0664 hijo.git/
+
+WORKDIR /home/hijo.git
+
+RUN git init --bare --shared=group . \
+ && git config receive.denynonfastforwards false
+
+COPY files/post-receive hooks/
+
+
+RUN chmod 755 hooks/post-receive \
+ && chown -R git:git /home/hijo.git
