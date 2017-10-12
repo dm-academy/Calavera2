@@ -26,7 +26,8 @@ RUN wget -O /usr/lib/jvm/junit-4.12.jar http://search.maven.org/remotecontent?fi
     && ln -s /usr/lib/jvm/junit-4.12.jar /usr/bin/junit-4.12.jar \
     && ln -s /usr/lib/jvm/hamcrest-core-1.3.jar /usr/bin/hamcrest-core-1.3.jar
 
-
+RUN apt-get update
+RUN apt-get install -y git
 
  #   remote_file "/usr/lib/jvm/junit-4.12.jar" do
   #      source 'http://search.maven.org/remotecontent?filepath=junit/junit/4.12/junit-4.12.jar'
