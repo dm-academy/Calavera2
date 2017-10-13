@@ -1,6 +1,9 @@
 FROM tomcat:latest
 MAINTAINER Charles T. Betz
 
+# install ssh
+
+
 
 # install Ant
 
