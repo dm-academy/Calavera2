@@ -41,7 +41,7 @@ RUN groupadd git \
 RUN mkdir -p /home/calavera/.ssh/
 COPY files/id* /home/calavera/.ssh/
 
-RUN chown -R calavera:calavera /home/calavera/\
+RUN chown -R calavera:calavera /home/calavera/ \
 && chmod -R 644 /home/calavera/.ssh
 
 RUN cat /home/calavera/.ssh/id_rsa.pub >> /home/calavera/.ssh/authorized_keys \
@@ -76,4 +76,12 @@ RUN git config --global user.email "char@calavera.biz" \
  && git add . -A \
  && git commit -m "initial commit"
 
- USER root
+# essential that cerebro is up; does this move to docker-compose??
+
+#RUN  ssh-keyscan 203.0.113.1 >> ~/.ssh/known_hosts \
+# && git remote add origin ssh://203.0.113.1/home/hijo.git \
+# && git push origin --mirror \
+#  && git push origin master
+
+
+USER root

@@ -6,7 +6,7 @@ RUN apt-get update \
  RUN groupadd git \
   && groupadd jenkins \
   && useradd -b "/home" -m -g git git \
-  && useradd -b "/home" -m -g git hijo \
+  && useradd -b "/home" -m -g git calavera \
   && useradd -b "/home" -m -g jenkins jenkins \
   && usermod -a -G git jenkins
 
