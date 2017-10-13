@@ -1,7 +1,7 @@
 FROM tomcat:latest
 MAINTAINER Charles T. Betz
 
-# install ssh
+
 
 
 
@@ -33,29 +33,42 @@ RUN apt-get update \
  && apt-get install -y git tree default-jdk
 
 RUN groupadd git \
- && groupadd hijo \
- && useradd -b "/home/" -m -g git hijo
+ && groupadd calavera \
+ && useradd -b "/home/" -m -g git calavera
 
-WORKDIR /home/hijo
+# configure SSH
 
-RUN mkdir -p src/main/config \
- && mkdir -p src/main/java/biz/calavera \
- && mkdir -p src/test/java/biz/calavera \
- && mkdir -p target/biz/calavera
+RUN mkdir -p /home/calavera/.ssh/
+COPY files/id* /home/calavera/.ssh/
+
+RUN chown -R calavera:calavera /home/calavera/\
+&& chmod -R 644 /home/calavera/.ssh
+
+RUN cat /home/calavera/.ssh/id_rsa.pub >> /home/calavera/.ssh/authorized_keys \
+&& chmod 600 /home/calavera/.ssh/id_rsa
+
+# Move app
+
+RUN mkdir -p /home/calavera/hijo/src/main/config \
+ && mkdir -p /home/calavera/hijo/src/main/java/biz/calavera \
+ && mkdir -p /home/calavera/hijo/src/test/java/biz/calavera \
+ && mkdir -p /home/calavera/hijo/target/biz/calavera
 
 COPY files/INTERNAL_gitignore .gitignore
-COPY files/build.xml  build.xml
-COPY files/web.xml src/main/config/web.xml
-COPY files/Class1.java src/main/java/biz/calavera/Class1.java
-COPY files/MainServlet.java src/main/java/biz/calavera/MainServlet.java
-COPY files/TestClass1.java src/test/java/biz/calavera/TestClass1.java
+COPY files/build.xml  /home/calavera/hijo/build.xml
+COPY files/web.xml /home/calavera/hijo/src/main/config/web.xml
+COPY files/Class1.java /home/calavera/hijo/src/main/java/biz/calavera/Class1.java
+COPY files/MainServlet.java /home/calavera/hijo/src/main/java/biz/calavera/MainServlet.java
+COPY files/TestClass1.java /home/calavera/hijo/src/test/java/biz/calavera/TestClass1.java
 
-RUN chown -R hijo:git /home/hijo/ \
- && chown -R hijo:hijo /usr/local/tomcat
+RUN chown -R calavera:calavera /home/calavera/hijo/ \
+ && chown -R calavera:calavera /usr/local/tomcat
+
+WORKDIR  /home/calavera/hijo
 
 RUN ant
 
-USER hijo
+USER calavera
 
 RUN git config --global user.email "char@calavera.biz" \
  && git config --global user.name "Charles Betz" \
