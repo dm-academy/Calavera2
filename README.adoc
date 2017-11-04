@@ -1,0 +1,3 @@
+= Calavera2 project
+
+This is a rewrite of the Calavera project, using Docker instead of Vagrant. 
