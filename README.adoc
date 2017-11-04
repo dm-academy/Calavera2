@@ -15,7 +15,9 @@ For example, team1 gets 201.0.113.1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 
 Every team should identify at least one "committer."
 
-That person should fork the Calavera2 repository to their account, and clone it down to their home directory on the server. Be careful to save any previous work, for example if you already have directly cloned dm-academy/Calavera2 you should rename that directory.
+*On Github,* that person should fork the Calavera2 repository to their account, and clone it down to their home directory on the server.
+
+*On the server,* be careful to save any previous work, for example if you already have directly cloned dm-academy/Calavera2 you should rename that directory.
 
 If you have completed some part of the work to your satisfaction, commit it to your Github fork and issue a pull request for me.
 
