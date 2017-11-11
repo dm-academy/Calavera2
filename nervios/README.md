@@ -33,7 +33,7 @@ logon via your %ip%:1999/nagios3
   - password: password
   (this image configured with central time, no email, and password as the password)<br>
 
-###Added to dockerhub
+### Added to dockerhub
 ### tag the image 
   - docker tag f1c5a5543686 jlmoldan/nervios)<br>
 ### push to docker.io
