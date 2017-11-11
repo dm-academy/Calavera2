@@ -1,10 +1,15 @@
-#Nervios issues/complications
-#Nagios is an interactve install, unable to get expect to act properly.  Created a container that runs
+# Nervios Build
 
-TO USE: <br>
+### Nervios issues/complications
+Nagios requires an interactive install, therefore (unless you are better than me at expect) we create the image with a Dockerfile, install nagios using a script pulled from github, commit the container and ship to dockerhub.
+
+### TO USE the current container
 docker pull jlmoldan/nervios<br>
 docker run -d -p 1999:80 jlmoldan/nervious /usr/sbin/apache2ctl -D FOREGROUND<br>
-<br>
+
+
+
+
 #Initial container build:<br>
 Create Dockerfile (see Dockerfile)<br>
 <br>
