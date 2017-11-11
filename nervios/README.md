@@ -42,5 +42,5 @@ logon via your %ip%:1999/nagios3
 
 # To DO
 ### Add hosts
-/etc/nagios3/conf.d/%hostnames.cfg% 
+/etc/nagios3/conf.d/%hostnames.cfg% <br>
 Change to class github in scripts not personal <br>
