@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #docker build --no-cache -t manos .
+#ssh-keyscan 203.0.113.2 > files/known_hosts
 
 docker build -t manos .
 
