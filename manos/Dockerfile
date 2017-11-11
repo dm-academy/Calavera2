@@ -41,8 +41,10 @@ RUN groupadd git \
 RUN mkdir -p /home/calavera/.ssh/
 COPY files/id* /home/calavera/.ssh/
 
-RUN chown -R calavera:calavera /home/calavera/ \
-&& chmod -R 644 /home/calavera/.ssh
+RUN chmod 754 /home/calavera/.ssh \
+&& chown -R calavera:calavera /home/calavera/
+##&& chmod 754 /home/calavera/.ssh 
+
 
 RUN cat /home/calavera/.ssh/id_rsa.pub >> /home/calavera/.ssh/authorized_keys \
 && chmod 600 /home/calavera/.ssh/id_rsa
@@ -78,10 +80,11 @@ RUN git config --global user.email "char@calavera.biz" \
 
 # essential that cerebro is up; does this move to docker-compose??
 
-#RUN  ssh-keyscan 203.0.113.1 >> ~/.ssh/known_hosts \
-# && git remote add origin ssh://203.0.113.1/home/hijo.git \
-# && git push origin --mirror \
-#  && git push origin master
 
+RUN ssh-keyscan 203.0.113.2 >> ~/.ssh/known_hosts \
+
+RUN git remote add origin ssh://203.0.113.2/tmp/test.git \
+&& git push origin --mirror \
+&& git push origin master
 
 USER root
