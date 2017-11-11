@@ -42,3 +42,4 @@ logon via your %ip%:1999/nagios3
 
 # To DO
 ### Add hosts
+/etc/nagios3/conf.d/%hostnames.cfg% 
