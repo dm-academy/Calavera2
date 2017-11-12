@@ -4,10 +4,10 @@ This is a rewrite of the Calavera project, using Docker instead of Vagrant.
 
 == IP ranges for containers
 
-* Team1 gets 201.0.113.1 - .10 for ip and ports 1000-2000
-* Team2 gets 201.0.113.2 - .20 for ip and ports 2000-3000
-* Team3 gets 201.0.113.3 - .30 for ip and ports 3000-4000
-* Team4 gets 201.0.113.4 - .40 for ip and ports 4000-5000
+* Team1 gets 203.0.113.1 - .10 for ip and ports 1000-2000
+* Team2 gets 203.0.113.2 - .20 for ip and ports 2000-3000
+* Team3 gets 203.0.113.3 - .30 for ip and ports 3000-4000
+* Team4 gets 203.0.113.4 - .40 for ip and ports 4000-5000
 
 For example, team1 gets 201.0.113.1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 
