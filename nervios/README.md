@@ -17,7 +17,7 @@ docker build -t nervios .<br>
 docker run -it nervios /bin/bash<br>
 
 #### Execute script inside the container
-sh /Calavera2/nervios/naginstall.sh<br>
+sh Calavera2/nervios/naginstall.sh<br>
    --Answer questions (time zone, mail gateway (1), password (password))<br>
 exit<br>
 
