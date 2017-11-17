@@ -6,13 +6,17 @@ Nagios requires an interactive install, therefore (unless you are better than me
 ### To USE the current container (no config neccessary)
 docker pull jlmoldan/nervios<br>
 docker run -d -p 1999:80 jlmoldan/nervious /usr/sbin/apache2ctl -D FOREGROUND<br>
+or using class net <br>
+docker run -d --net cala01 --ip 203.0.113.10 -p 1999:80 jlmoldan/nervious /usr/sbin/apache2ctl -D FOREGROUND <br>
+
 
 
 
 ### If you want to rebuild container
 #### Get Dockerfile from github  (https://github.com/dm-academy/Calavera2)
 ##### NOTE:  If you want to change hosts to modify - add the .cfg files to the repo and it will sync them down during build
-
+git clone https://github.com/dm-academy/Calavera2.git <br>
+cd Calavera2/nervios/ <br>
 
 #### Build container
 docker build -t nervios .<br>
@@ -29,8 +33,8 @@ exit<br>
 docker commit %DOCKERID% nervios (where  %DOCKERID% is the container id just created) <br>
 
 ### Run the container
-#docker run -d -p 1999:80 nervios /usr/sbin/apache2ctl -D FOREGROUND<br>
-docker run -d  --net cala01 --ip 203.0.113.10 -p 1999:80 jlmoldan/nervious /usr/sbin/apache2ctl -D FOREGROUND<br>
+docker run -d -p 1999:80 nervios /usr/sbin/apache2ctl -D FOREGROUND<br>
+
 
 ### Log on 
 logon via your %ip%:1999/nagios3 
