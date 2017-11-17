@@ -7,8 +7,10 @@ Nagios requires an interactive install, therefore (unless you are better than me
 docker pull jlmoldan/nervios<br>
 docker run -d -p 1999:80 jlmoldan/nervious /usr/sbin/apache2ctl -D FOREGROUND<br>
 
-### To rebuild container
-#### Get Dockerfile from github
+
+
+### If you want to rebuild container
+#### Get Dockerfile from github  (https://github.com/dm-academy/Calavera2)
 
 #### Build container
 docker build -t nervios .<br>
@@ -41,7 +43,6 @@ logon via your %ip%:1999/nagios3
   - docker push  jlmoldan/nervios
   
 
-# To DO
-### Add hosts
-/etc/nagios3/conf.d/%hostnames.cfg% <br>
-Change to class github in scripts not personal (in both dockerfile/and in code on the naginstall.sh<br>
+# To DO yet
+
+
