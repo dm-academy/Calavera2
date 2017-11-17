@@ -25,7 +25,8 @@ exit<br>
 docker commit %DOCKERID% nervios (where  %DOCKERID% is the container id just created) <br>
 
 ### Run the container
-docker run -d -p 1999:80 nervios /usr/sbin/apache2ctl -D FOREGROUND<br>
+#docker run -d -p 1999:80 nervios /usr/sbin/apache2ctl -D FOREGROUND<br>
+docker run -d  --net cala01 --ip 203.0.113.10 -p 1999:80 jlmoldan/nervious /usr/sbin/apache2ctl -D FOREGROUND<br>
 
 ### Log on 
 logon via your %ip%:1999/nagios3 
