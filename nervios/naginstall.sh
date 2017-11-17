@@ -52,7 +52,7 @@ chk_user
 
 
 ### ADD HERE - git clone and pump the hosts files into place
-
+cp /nagios2/*.cfg /etc/nagios3/conf.d/
 
 exit 0
 
