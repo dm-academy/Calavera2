@@ -51,14 +51,8 @@ chk_user
                                 echo -e "\n\tNow Nagios is ready to be used via: http://$IP/nagios3"
 
 
-# Try to make them start
-touch /start.sh
-echo "#!/bin/bash" >> /start.sh
-echo "service apache2 start" >> /start.sh
-echo "service nagios3 start" >> /start.sh
-chmod +x /start.sh
-#cp /nagios2/supervisord /usr/bin/supervisord
-#chmod +x /usr/bin/supervisord
+### ADD HERE - git clone and pump the hosts files into place
+cp Calavera2/nervios/*.cfg /etc/nagios3/conf.d/
 
 exit 0
 
