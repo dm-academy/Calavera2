@@ -17,7 +17,7 @@ docker build -t nervios .<br>
 docker run -it nervios /bin/bash<br>
 
 #### Execute script inside the container
-sh nagios2/naginstall.sh<br>
+sh /Calavera2/nervios/naginstall.sh<br>
    --Answer questions (time zone, mail gateway (1), password (password))<br>
 exit<br>
 
@@ -38,7 +38,7 @@ logon via your %ip%:1999/nagios3
 ### tag the image 
   - docker tag f1c5a5543686 jlmoldan/nervios)<br>
 ### push to docker.io
-  - docker push  jlmoldan/nerviosv
+  - docker push  jlmoldan/nervios
   
 
 # To DO
