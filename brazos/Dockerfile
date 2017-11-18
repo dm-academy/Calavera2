@@ -67,7 +67,19 @@ RUN chown -R calavera:calavera /home/calavera/hijo/ \
  && chown -R calavera:calavera /usr/local/tomcat
 
 
+#add jenkins user
+# Add user jenkins to the image
+RUN adduser --quiet jenkins
+# Set password for the jenkins user (you may want to alter this).
+RUN mkdir /home/jenkins/.ssh
+COPY files/id_rsa.pub /home/jenkins/.ssh/authorized_keys
+RUN chown -R jenkins:jenkins /home/jenkins/
+RUN chmod 600 /home/jenkins/.ssh/authorized_keys
+RUN chmod 700 /home/jenkins/.ssh
 
+EXPOSE 8080
+EXPOSE 22
+EXPOSE 50000
 
 WORKDIR  /home/calavera/hijo
 
