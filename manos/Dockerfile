@@ -38,16 +38,21 @@ RUN groupadd git \
 
 # configure SSH
 
-RUN mkdir -p /home/calavera/.ssh/
+USER calavera
+
+RUN mkdir -p /home/calavera/.ssh/ \
+&& chmod 754 /home/calavera/.ssh 
+#&& chown -R calavera:calavera /home/calavera/
+
 COPY files/id* /home/calavera/.ssh/
 
-RUN chmod 754 /home/calavera/.ssh \
-&& chown -R calavera:calavera /home/calavera/
+##RUN chmod 754 /home/calavera/.ssh \
+##&& chown -R calavera:calavera /home/calavera/
 ##&& chmod 754 /home/calavera/.ssh 
 
 
-RUN cat /home/calavera/.ssh/id_rsa.pub >> /home/calavera/.ssh/authorized_keys \
-&& chmod 600 /home/calavera/.ssh/id_rsa
+RUN cat /home/calavera/.ssh/id_rsa.pub >> /home/calavera/.ssh/authorized_keys 
+#&& chmod 600 /home/calavera/.ssh/id_rsa
 
 # Move app
 
@@ -63,10 +68,12 @@ COPY files/Class1.java /home/calavera/hijo/src/main/java/biz/calavera/Class1.jav
 COPY files/MainServlet.java /home/calavera/hijo/src/main/java/biz/calavera/MainServlet.java
 COPY files/TestClass1.java /home/calavera/hijo/src/test/java/biz/calavera/TestClass1.java
 
-RUN chown -R calavera:calavera /home/calavera/hijo/ \
- && chown -R calavera:calavera /usr/local/tomcat
+#RUN chown -R calavera:calavera /home/calavera/hijo/ \
+# && chown -R calavera:calavera /usr/local/tomcat
 
 WORKDIR  /home/calavera/hijo
+
+USER root
 
 RUN ant
 
@@ -78,13 +85,16 @@ RUN git config --global user.email "char@calavera.biz" \
  && git add . -A \
  && git commit -m "initial commit"
 
-# essential that cerebro is up; does this move to docker-compose??
+# essential that cerebro is up; does this move to docker-com
 
+RUN ssh-keyscan 203.0.113.2 >> ~/.ssh/known_hosts 
+#COPY files/known_hosts /home/calavera/.ssh/known_hosts
 
-RUN ssh-keyscan 203.0.113.2 >> ~/.ssh/known_hosts \
-
-RUN git remote add origin ssh://203.0.113.2/tmp/test.git \
-&& git push origin --mirror \
-&& git push origin master
+RUN git remote add origin ssh://203.0.113.2/home/hijo.git
+ #\
+#&& git push origin --mirror \
+#&& git push origin master
 
 USER root
+
+
