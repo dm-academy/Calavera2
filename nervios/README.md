@@ -30,6 +30,7 @@ sh Calavera2/nervios/naginstall.sh<br>
 exit<br>
 
 #### Commit the docker
+find %DOCKERID% by running #docker ps |head
 docker commit %DOCKERID% nervios (where  %DOCKERID% is the container id just created) <br>
 
 ### Run the container
