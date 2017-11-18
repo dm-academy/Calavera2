@@ -87,10 +87,10 @@ RUN git config --global user.email "char@calavera.biz" \
 
 # essential that cerebro is up; does this move to docker-com
 
-RUN ssh-keyscan 203.0.113.2 >> ~/.ssh/known_hosts 
+RUN ssh-keyscan 203.0.113.41 >> ~/.ssh/known_hosts 
 #COPY files/known_hosts /home/calavera/.ssh/known_hosts
 
-RUN git remote add origin ssh://203.0.113.2/home/hijo.git
+RUN git remote add origin ssh://203.0.113.41/home/hijo.git
  #\
 #&& git push origin --mirror \
 #&& git push origin master
