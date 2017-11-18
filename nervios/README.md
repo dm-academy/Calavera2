@@ -35,6 +35,8 @@ docker commit %DOCKERID% nervios (where  %DOCKERID% is the container id just cre
 
 ### Run the container
 docker run -d -p 1999:80 nervios /usr/sbin/apache2ctl -D FOREGROUND<br>
+or for class <br>
+docker run -d --net cala01 --ip 203.0.113.10 -p 1999:80 %YOURNAME% /usr/sbin/apache2ctl -D FOREGROUND 
 
 
 ### Log on 
