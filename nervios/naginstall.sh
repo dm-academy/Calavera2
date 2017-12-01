@@ -7,14 +7,16 @@
 ### pre work
 apt-get update
 apt-get upgrade -y
-apt-get install --yes vim net-tools apt-utils
+#apt-get install --yes vim net-tools apt-utils
+### removed vim net-tools apt-utils -> these were just usefull for debugging
 
 ########################################################
 #### Installation Starts ######
 ########################################################
 
                                                               
-                                apt-get -y  install apache2 build-essential wget perl openssl supervisor
+                                apt-get -y  install apache2 build-essential wget perl \
+                                #apt-get -y install openssl supervisor
                                 apt-get -y  install nagios-plugins
                                 ##apt-get -y  install nagios3
                                 DEBIAN_FRONTEND=noninteractive apt-get -y install nagios3
@@ -24,8 +26,9 @@ apt-get install --yes vim net-tools apt-utils
                                 
                     
                                      
-                                apt-get -y  install nagios-plugins-basic nagios-plugins-extra nagios-snmp-plugins nagios-nrpe-plugin nagios3-core nagios-plugins-standard nagios3-cgi nagios-plugins-contrib
-                                apt-get -y  install libssl-dev openssh-server openssh-client ntpdate snmp smbclient libldap-2.4-2 libldap2-dev  unzip
+                                apt-get -y  install nagios-plugins-basic nagios3-core nagios-plugins-standard
+                                #apt-get -y install nagios-plugins-extra nagios-snmp-plugins nagios-nrpe-plugin   nagios3-cgi nagios-plugins-contrib
+                                #apt-get -y  install libssl-dev openssh-server openssh-client ntpdate snmp smbclient libldap-2.4-2 libldap2-dev  unzip
                                 sed -i 's/check_external_commands=0/check_external_commands=1/g' /etc/nagios3/nagios.cfg
 
                                 /usr/sbin/usermod -a -G www-data nagios
