@@ -35,7 +35,8 @@ chk_user
                                 apt-get upgrade -y
                                 apt-get -y  install apache2 build-essential wget perl openssl supervisor
                                 apt-get -y  install nagios-plugins
-                                apt-get -y  install nagios3
+                                ##apt-get -y  install nagios3
+                                DEBIAN_FRONTEND=noninteractive apt-get -y install nagios3
                                 apt-get -y  install nagios-plugins-basic nagios-plugins-extra nagios-snmp-plugins nagios-nrpe-plugin nagios3-core nagios-plugins-standard nagios3-cgi nagios-plugins-contrib
                                 apt-get -y  install libssl-dev openssh-server openssh-client ntpdate snmp smbclient libldap-2.4-2 libldap2-dev  unzip
                                 sed -i 's/check_external_commands=0/check_external_commands=1/g' /etc/nagios3/nagios.cfg
