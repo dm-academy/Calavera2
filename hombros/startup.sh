@@ -1,4 +1,4 @@
 docker build . -t hombros
 
-docker run -p 8082:8080 --env JAVA_OPTS="-Dhudson.Main.development=true -Djenkins.install.runSetupWizard=false"  hombros
+docker run --env JAVA_OPTS="-Dhudson.Main.development=true -Djenkins.install.runSetupWizard=false" -td --net cala01 --ip 203.0.113.30  hombros
 

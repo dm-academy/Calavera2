@@ -1,0 +1,3 @@
+git:latest
+ant:latest
+artifactory:latest
