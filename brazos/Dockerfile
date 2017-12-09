@@ -87,6 +87,9 @@ RUN ant
 
 USER calavera
 
+RUN apt-get install git
+RUN chmod 755 -R /usr/local/tomcat
+
 #RUN git config --global user.email "char@calavera.biz" \
 # && git config --global user.name "Charles Betz" \
 # && git init . \
