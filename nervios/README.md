@@ -1,5 +1,5 @@
 # Nervios Build
-
+run startup.sh from directory containing Dockerfile
 
 #### Get Dockerfile from github  (https://github.com/dm-academy/Calavera2)
 ##### NOTE:  If you want to change hosts to modify - add the .cfg files to the repo and it will sync them down during build
