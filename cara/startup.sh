@@ -1,4 +1,6 @@
 #!/bin/bash
+wget http://203.0.113.42:8081/artifactory/example-repo-local/hijo/target/CalaveraMain.jar
+wget http://203.0.113.42:8081/artifactory/example-repo-local/hijo/target/web.xml
 
 docker build -t cara .
 
