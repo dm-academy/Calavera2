@@ -6,5 +6,5 @@
 
 #curl http://hombros1:8080/git/notifyCommit?url=git@cerebro1:/home/hijo.git
 
-curl http://203.0.113.30:8080/git/notifyCommit?url=git@203.0.113.2:/home/hijo.git
+curl -X POST http://203.0.113.30:8080/job/hijo/build
 
