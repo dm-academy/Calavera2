@@ -51,7 +51,7 @@ RUN cat id_rsa.pub >> authorized_keys \
 WORKDIR /home/
 
 RUN mkdir -p hijo.git/hooks \
- && chmod -R 0664 hijo.git/
+ && chmod -R 0775 hijo.git/
 
 WORKDIR /home/hijo.git
 
