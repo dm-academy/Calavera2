@@ -1,3 +1,5 @@
 git:latest
 ant:latest
 artifactory:latest
+workflow-aggregator:latest
+
