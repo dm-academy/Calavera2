@@ -21,7 +21,7 @@ class Average
 	  System.out.println("Enter   "+n+"  numbers");
     	       
           for(int i=0;i<n;i++)
- 	       a[i]=reader.nextInt();
+ 	       a[i]=(int) reader.nextDouble();
  
 	  res=Average.CalAvg(a,n); 
  	 	    
