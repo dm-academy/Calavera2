@@ -41,6 +41,9 @@ apt-get upgrade -y
                                
                                 echo -e "\n\tNow Nagios is ready to be used via: http://$IP/nagios3"
 
+                                #Fix Nagios apache permissions
+                                 dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw
+                                 dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3
 
 ### ADD HERE - git clone and pump the hosts files into place
 ##cp Calavera2/nervios/*.cfg /etc/nagios3/conf.d/
