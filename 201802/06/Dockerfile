@@ -15,5 +15,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8005
-CMD node bukie.js
+EXPOSE 8008
+CMD node server.js
