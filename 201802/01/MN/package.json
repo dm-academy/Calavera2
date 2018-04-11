@@ -1,0 +1,14 @@
+{
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Tanoja Sunkam <sunk1343@stthomas.edu>, Liz Farinha-Guevara <fari5273@stthomas.edu>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}
