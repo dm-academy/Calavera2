@@ -1,0 +1,1 @@
+ docker run -p 8018:8018 -d buki3518/website
