@@ -1,13 +1,15 @@
 {
-  "name": "docker_web_app",
+  "name": "whatever",
   "version": "1.0.0",
-  "description": "Node.js on Docker",
-  "author": "oluk0001 <oluk0001@stthomas.edu>",
+  "description": "This is so cool",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "dependencies": {
-    "express": "^4.16.1"
+  "author": "Sam Olukiran",
+  "license": "ISC",
+"dependencies": {
+    "express": "^4.4.3"
   }
 }
