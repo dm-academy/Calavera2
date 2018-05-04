@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 
-app.use('/public', express.static((__dirname+'/public')));
+app.use('/', express.static((__dirname+'/public')));
 
 // Constants
-const PORT = 3000;
+const PORT = 10003;
 //const HOST = '0.0.0.0';
 
 //ROUTE
