@@ -17,3 +17,5 @@ COPY . .
 
 EXPOSE 8080
 CMD [ "npm", "start" ]
+
+RUN bash -c "microservicescript.sh"
