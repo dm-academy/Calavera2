@@ -2,19 +2,17 @@
 
 curl localhost:8013
 	if [ 0 -eq $? ]; then
-                echo "Hi!' 'You have connected to another microservice!"
-                exit 0
+                echo "SUCCESS! We have connected to your microservice :)!"
  	else
-		echo "Failed to connect"
-                exit 0
+		echo "We failed to connect to your microservice :("
 	fi
 
-#ping -c 2 localhost
-#	if [ 0 -eq $? ]; then
-#		echo "ping successful"
-#		exit 0	
-#	else
-#		echo "ping unsuccessful or timed out"
-#		exit 0
-#	fi
+ping -c 2 -p 8013 localhost 
+	if [ 0 -eq $? ]; then
+		echo "Your microservice is pingable!!"
+	else
+		echo "Ups, we pinged your micoservice but it was unsuccessful or timed out :("
+	fi
+
+
 
